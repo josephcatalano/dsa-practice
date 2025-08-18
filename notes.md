@@ -1,6 +1,6 @@
 **Aug 17 2025**
 
-GIT
+*GIT*
     git init - creates subfolder named .git this folder is the brain of your repo.  Its where git tracks every change and stores history. (do this for every project)
     git add <file> - moves the files into a waiting room called "Staging Area". Multiple files are added before a commit then push. 
     git push <file> - This is when you upload that photo from your camera roll to your online gallery (GitHub) to share it.
@@ -15,13 +15,13 @@ GIT
     git diff --staged - compare the snapshot of files you created with git add (shows everything you have added)
     git log - Shows list of commit history starting with most recent
 
-PIP
+*PIP*
     pip freeze > requirements.txt - Generates a list of installed packages, and then pours them into a new file called requirements.txt
     pip install -r requirements.txt - Tells pip to install everything in your requirements file.
 
 
 
-VENV
+*VENV*
     python -m venv .venv - create a virtual environment inside your project folder (Always do this when making new project)
     (WIN) .venv\Scripts\activate - Activate the venv, once its activated any package you install with pip will go only inside the isolated environment
     (MAC) source .venv/bin/activate 
@@ -31,7 +31,7 @@ VENV
     - the requirements.txt file is then generated from inside this environment, so it only lists the specific packages for that project
 
 
-BIG O NOTATION (How code slows as data grows)
+*BIG O NOTATION (How code slows as data grows)*
     - Formal way to describe how the resources required by an algorithm are affected by the size of its input. 
     - Big O doesn't measure performance in seconds but measures the Rate Of Growth of the number of operations.
     - Big O answers the question "As the input to my algorithm gets bigger, how much longer will it take to run?"
@@ -68,7 +68,7 @@ BIG O NOTATION (How code slows as data grows)
 
 **AUGUST 18 2025**
 
-Arrays & Dynamic Arrays
+*Arrays & Dynamic Arrays*
     - An array stores a collection of elements in contiguous which means elements are stored one after another in a single, unbroken block of mem.
     Ex of Contiguous Memory:
         - A row of houses on a street that are all built right next to each other.  If you know the address of the first house and you want to get to the 5th house, you can instantly calculate where it is. You don't have to visit houses 1 through 4 to find it.
@@ -110,3 +110,21 @@ Arrays & Dynamic Arrays
     | Insertion (at start/middle)|        O(n)        | Must shift all subsequent elements to make space.           |
     | Deletion (at start/middle) |        O(n)        | Must shift all subsequent elements to close the gap.        |
     | Append (add to end)        | `Amortized O(1)`   | Usually O(1), but occasionally O(n) when resizing is needed.|
+
+    Build your own dynamic array
+        - When creating a class to represent your array the two most important numbers you need to keep track of as internal variables are:
+          - Size: The number of elements you are currently storing in the array. This is what a user of your class would consider its "length".
+          - Capacity: The total number of slots the underlying array has available before it needs to be resized.
+    
+        The __init__ Method
+          - When you initialize an empty dynamic array, size and capacity should be 0.
+            The Zero-Capacity Edge Case
+              - If you initialize an array with a capacity of 0, what happens when you append the first element?
+              - The array would have to perform a resize.
+              - To avoid this many real-world implementations actually start with a small default capacity, like 4 or 8 as minor optimization.
+        
+        The append Method
+            - The first check that needs to happen is to compare the two variables (size and capacity) to decide if it has enough room or if it needs to perform the resize operation.
+              - If they are equal, the array is full, we must trigger the resize operation
+              - If they are not equal, there's empty space, and we can simply add the new element.
+      - 
