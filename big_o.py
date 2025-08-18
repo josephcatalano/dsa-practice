@@ -1,4 +1,4 @@
-"""_"""
+"""Examples of Big O Notations in action"""
 
 def o_1():
     """O(1) -Objective: Find the 3rd element in any piece of data"""
@@ -13,9 +13,8 @@ def o_1():
     print(small_data, big_data)
     # no matter how big the array is finding the 3rd element takes the same amount of steps.
 
-# O(log n)
 def log_n_1(n):
-    """_"""
+    """O(log n)"""
     count = 0
     i = 1
     while i < n:
@@ -24,18 +23,17 @@ def log_n_1(n):
     print(count)
     # 2 pieces of data takes 1 step 57899384843 pieces of data takes 36, a lot better than 1:1
 
-# O(n)
 def o_n(n):
-    """_"""
+    """O(n)"""
     count = 0
     for i in range(0, n):
         count += 1
     print(count)
     #amount of time/work needed to complete the for look depends on size of n 1:1 (data = 1 steps = 1, data = 100000 steps = 100000)
 
-# O(n^2)
+
 def o_n_squared(n):
-    """_"""
+    """O(n^2)"""
     for i in range(0, n):
         for j in range(0, n):
             print(i, j, end= ", ")
