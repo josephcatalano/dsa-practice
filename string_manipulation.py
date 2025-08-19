@@ -12,7 +12,7 @@ Date: August 19, 2025
 import time
 
 def reverse_string(s: str) -> str:
-    """Reverses a given string.
+    """Reverses a given string using slicing.
 
     Args:
         s: The string to be reversed.
