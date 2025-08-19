@@ -129,3 +129,28 @@
               - If they are equal, the array is full, we must trigger the resize operation
               - If they are not equal, there's empty space, and we can simply add the new element.
   
+*Strings and Immutability*
+    - Strings in python are immutable, this means once a string is created, it can never be changed in place.
+    - How to "Change" a string
+        my_string = "hello"
+        new_string = "H" + my_string[1:]
+    
+    String Searching
+        - The goal is to find all occurrences of a smaller string (pattern) within a larger string (text)
+        - The goal is simple the real challenge is to do it efficiently
+  
+        The "Naive" Approach OR The "Sliding Window" Approach
+          - This is the most basic algorithm
+          - Suppose you have the text [ABABC] and you're searching for the patter [ABC].
+          - Naive starts at the first character of the text and asks "Does the pattern [ABC] start here?
+          - If not the algorithm moves its starting position (window) one character to the right and tries again
+          - Time complexity of this is O(n*m) n = starting position (window), m = characters
+
+        Knuth-Morris-Pratt (KMP) Algorithm
+            - Ex. Text: ABCABCABD
+                Pattern:   ABCABD
+                - Sliding Window would start at index 0 and match [ABCAB] then fail on the cast character (C vs D)
+                - KMP algorithm is smart enough to know that after seeing [ABCAB] then failing, theres no possible way a match could start at index 1, 2, or 3.
+                - It uses a pre-computed table to know it can safely jump its window all the way to index 3 to continue the search.
+                - This is what makes it much faster, often approaching O(n) time.
+  
