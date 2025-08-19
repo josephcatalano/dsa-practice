@@ -13,7 +13,7 @@ import time
 
 def reverse_string(s: str) -> str:
     """Reverses a given string.
-
+    
     Args:
         s: The string to be reversed.
 
