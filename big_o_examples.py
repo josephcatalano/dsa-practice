@@ -1,130 +1,140 @@
 """big_o_examples.py
 
-A module demonstrating common Big O notation complexities with simple,
-illustrative Python functions. Each function counts its primary operations
-to show how the workload scales with the input size 'n'.
+A module demonstrating common Big O notation complexities.
+
+Each function illustrates a specific complexity class by modeling an algorithm
+and counting the operations it performs relative to the input size 'n'. This
+provides a practical look at how algorithm performance scales.
 
 Author: Joseph Catalano
-Date: August 17, 2025
+Date: August 19, 2025
 """
 
 from typing import List
 
-## O(1) - Constant Time
+# Constants
+N_SMALL = 16
+N_LARGE = 1024
 
 def demonstrate_constant_time(items: List[int]) -> None:
-    """Demonstrates O(1) - Constant Time complexity.
+    """Demonstrates O(1) - Constant Time.
 
-    An algorithm is O(1) if the number of operations it performs does not
-    change, regardless of the size of the input. Accessing an element by
-    its index in an array is the classic example.
+    An O(1) algorithm's execution time is constant; it does not change with
+    the size of the input 'n'.
+
+    Analogy: Picking a numbered page from a book. It takes the same amount
+    of time whether the book has 50 or 500 pages.
 
     Args:
-        items (List[int]): A list of items to operate on.
+        items: A list of items. The function will access the first element.
     """
+
     operations = 0
     if items:
+        # The core O(1) action is accessing an element by its index.
+        _ = items[0]
         operations = 1
 
-    print("O(1) - Constant Time:")
-    print(f"  Input size (n): {len(items)}")
-    print(f"  Operations: {operations} (This will always be 1 or 0)")
-    print("-" * 20)
-
-## O(log n) - Logarithmic Time
+    print(f"  Input size (n): {len(items):,}")
+    print(f"  Operations: {operations} (Constant regardless of n)")
 
 def demonstrate_logarithmic_time(n: int) -> None:
-    """Demonstrates O(log n) - Logarithmic Time complexity.
+    """Demonstrates O(log n) - Logarithmic Time.
 
-    An algorithm is O(log n) if the number of operations grows in proportion
-    to the logarithm of the input size. This means the time it takes grows
-    very slowly. A common example is repeatedly halving the input size, as
-    seen in a binary search.
+    An O(log n) algorithm's execution time grows logarithmically with 'n'.
+    This is highly efficient because the operational cost increases very
+    slowly as the input size grows. This typically occurs when the problem
+    size is halved at each step.
+
+    Analogy: Finding a word in a physical dictionary. You open to the
+    middle, see if your word is before or after, and then repeat the
+    process on that smaller half.
 
     Args:
-        n (int): The size of the input.
+        n: The size of the theoretical input.
     """
+
     operations = 0
     i = 1
     while i < n:
         i *= 2
         operations += 1
 
-    print("O(log n) - Logarithmic Time:")
-    print(f"  Input size (n): {n}")
-    print(f"  Operations: {operations} (Note how slowly this number grows)")
-    print("-" * 20)
-
-## O(n) - Linear Time
+    print(f"  Input size (n): {n:,}")
+    print(f"  Operations: {operations} (Grows very slowly as n increases)")
 
 def demonstrate_linear_time(n: int) -> None:
-    """Demonstrates O(n) - Linear Time complexity.
+    """Demonstrates O(n) - Linear Time.
 
-    An algorithm is O(n) if the number of operations grows in a direct,
-    1-to-1 relationship with the size of the input. Iterating through
-    all elements of a list is the classic example.
+    An O(n) algorithm's execution time grows in direct proportion to the
+    input size 'n'. If the input doubles, the work doubles.
+
+    Analogy: Reading every page in a book. A 200-page book takes twice
+    as long to read as a 100-page book.
 
     Args:
-        n (int): The size of the input.
+        n: The size of the input.
     """
-    operations = 0
-    for _ in range(n):
-        operations += 1
 
-    print("O(n) - Linear Time:")
-    print(f"  Input size (n): {n}")
-    print(f"  Operations: {operations} (A direct 1-to-1 relationship)")
-    print("-" * 20)
-
-## O(n^2) - Quadratic Time
+    operations = sum(1 for _ in range(n))
+    print(f"  Input size (n): {n:,}")
+    print(f"  Operations: {operations:,} (Grows 1-to-1 with n)")
 
 def demonstrate_quadratic_time(n: int) -> None:
-    """Demonstrates O(n^2) - Quadratic Time complexity.
+    """Demonstrates O(n^2) - Quadratic Time.
 
-    An algorithm is O(n^2) if the number of operations is proportional to
-    the square of the input size. This is common when an operation must be
-    performed for every element in combination with every other element,
-    such as in a nested loop.
+    An O(n^2) algorithm's execution time is proportional to the square of
+    the input size. This is common in algorithms that compare every element
+    of a collection to every other element (e.g., nested loops).
+
+    Analogy: A room full of people where everyone shakes hands with everyone
+    else. If you double the number of people, the number of handshakes
+    roughly quadruples.
 
     Args:
-        n (int): The size of the input.
+        n: The size of the input.
     """
+
     operations = 0
     for _ in range(n):
         for _ in range(n):
             operations += 1
 
-    print("O(n^2) - Quadratic Time:")
-    print(f"  Input size (n): {n}")
-    print(f"  Operations: {operations} (Grows very quickly: n*n)")
-    print("-" * 20)
-
+    print(f"  Input size (n): {n:,}")
+    print(f"  Operations: {operations:,} (Grows exponentially with n)")
 
 def main():
-    """Runs all the Big O demonstration functions."""
-    print("--- Big O Notation Examples ---")
+    """Runs all the Big O demonstration functions with sample inputs."""
 
-    small_list = [i for i in range(10)]
-    large_list = [i for i in range(1000)]
-    n_small = 10
-    n_large = 1000
+    print("--- Big O Notation Examples ---\n")
 
-    # O(1) Demo
-    demonstrate_constant_time(small_list)
-    demonstrate_constant_time(large_list)
+    # Create lists for the O(1) demonstration
+    small_list = list(range(N_SMALL))
+    large_list = list(range(N_LARGE))
 
-    # O(log n) Demo
-    demonstrate_logarithmic_time(n_small)
-    demonstrate_logarithmic_time(n_large)
+    demos = {
+        "O(1)   - Constant": lambda: (
+            demonstrate_constant_time(small_list),
+            demonstrate_constant_time(large_list),
+        ),
+        "O(log n) - Logarithmic": lambda: (
+            demonstrate_logarithmic_time(N_SMALL),
+            demonstrate_logarithmic_time(N_LARGE),
+        ),
+        "O(n)   - Linear": lambda: (
+            demonstrate_linear_time(N_SMALL),
+            demonstrate_linear_time(N_LARGE),
+        ),
+        "O(n^2)  - Quadratic": lambda: (
+            demonstrate_quadratic_time(N_SMALL),
+            print("  (Skipping large input for O(n^2) as it would be 1,048,576 ops)"),
+        ),
+    }
 
-    # O(n) Demo
-    demonstrate_linear_time(n_small)
-    demonstrate_linear_time(n_large)
-
-    # O(n^2) Demo
-    demonstrate_quadratic_time(n_small)
-    # Note: We use a small n here because this grows so fast!
-    # demonstrate_quadratic_time(n_large) # This would be 1,000,000 operations!
+    for name, func in demos.items():
+        print(f"## {name} ##")
+        func()
+        print("-" * 30)
 
 
 if __name__ == "__main__":

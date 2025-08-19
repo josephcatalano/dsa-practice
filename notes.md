@@ -7,7 +7,6 @@
     git pull <file> - You do this every day on a repository you already have. It checks the remote for new commits and downloads them to your existing local copy. It's like getting today's issue of the magazine in the mail.
     git commit - This is when you actually press the shutter button. You take the snapshot and give it a description (a commit message). The photo is now saved in your local camera roll (your local repository).
         -m "<message>" (Message Flag)
-    git add <file> - This is like arranging the scene and deciding what's going to be in the picture. You are "staging" the shot.
     .gitignore - stores all the files you don't want to track (ex. don't save the .venv because it can be very large and specific to each dev's computer)
     git remote add origin <your-repository-url.git> - Connects local repo to the new remote one on GitHub
     git push -u origin main - Send local commit history up to GitHub
@@ -18,7 +17,7 @@
 
 *PIP*
     pip freeze > requirements.txt - Generates a list of installed packages, and then pours them into a new file called requirements.txt
-    pip install -r requirements.txt - Tells pip to install everything in your requirements file.
+    pip install -r requirements.txt - Tells pip to install everything in your requirements file. (Make sure your in venv)
 
 
 

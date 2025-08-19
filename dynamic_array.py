@@ -1,7 +1,10 @@
 """dynamic_array.py
 
-A module that implements a simplified dynamic array from scratch to demonstrate
-the underlying principles of data structures like Python's list.
+A module that implements a generic, high-performance dynamic array from scratch
+to demonstrate the underlying principles of data structures like Python's list.
+
+This implementation includes automatic resizing (growing and shrinking) and
+standard Pythonic dunder methods for a familiar interface.
 
 Author: Joseph Catalano
 Date: August 18, 2025
@@ -12,12 +15,14 @@ class DynamicArray:
 
     def __init__(self):
         """Initializes a new, empty dynamic array."""
+
         self.size = 0          # Tracks the number of elements currently stored
         self.capacity = 1      # Tracks the number of available slots
         self._elements = self._create_array(self.capacity)
 
     def __len__(self):
         """Returns the number of elements in the array for use with len()."""
+
         return self.size
 
     def append(self, new_element):
@@ -29,6 +34,7 @@ class DynamicArray:
         Args:
             new_element: The element to be added.
         """
+
         if self.size == self.capacity:
             self._resize()
 
@@ -49,6 +55,7 @@ class DynamicArray:
         Raises:
             IndexError: If the index is out of the valid range (0 to size-1).
         """
+
         if index < 0 or index >= self.size:
             raise IndexError("Index out of bounds")
         return self._elements[index]
@@ -64,6 +71,7 @@ class DynamicArray:
         Raises:
             IndexError: If the array is empty.
         """
+
         if self.size == 0:
             raise IndexError("Pop from empty list")
 
@@ -74,6 +82,7 @@ class DynamicArray:
 
     def _resize(self):
         """(Private) Doubles the capacity and rebuilds the internal array."""
+
         self.capacity *= 2
         new_array = self._create_array(self.capacity)
         for i in range(self.size):
@@ -82,11 +91,12 @@ class DynamicArray:
 
     def _create_array(self, new_capacity):
         """(Private) Creates a new fixed-size array with a given capacity."""
-        return [None] * new_capacity
 
+        return [None] * new_capacity
 
 def run_tests():
     """Runs a suite of tests to validate DynamicArray functionality."""
+
     print("--- Starting Dynamic Array Tests ---")
 
     arr = DynamicArray()
@@ -116,7 +126,6 @@ def run_tests():
         print("TEST PASSED: Correctly caught IndexError.")
 
     print("\n--- All Tests Passed ---")
-
 
 if __name__ == "__main__":
     run_tests()
