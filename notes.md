@@ -14,6 +14,7 @@
     git clone <paste-github-url-here> - You do this once per machine to create a brand new, local copy of a remote repository. It's like subscribing to a new magazine; you get the entire back-catalog and are set up for future issues.
     git diff --staged - compare the snapshot of files you created with git add (shows everything you have added)
     git log - Shows list of commit history starting with most recent
+    git mv <old-file-name> <new-file-name> - Single "rename" action, not a separate delete and add. 
 
 *PIP*
     pip freeze > requirements.txt - Generates a list of installed packages, and then pours them into a new file called requirements.txt
@@ -127,4 +128,4 @@
             - The first check that needs to happen is to compare the two variables (size and capacity) to decide if it has enough room or if it needs to perform the resize operation.
               - If they are equal, the array is full, we must trigger the resize operation
               - If they are not equal, there's empty space, and we can simply add the new element.
-      - 
+  
