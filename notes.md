@@ -1,36 +1,5 @@
 **Aug 17 2025**
 
-*GIT*
-    git init - creates subfolder named .git this folder is the brain of your repo.  Its where git tracks every change and stores history. (do this for every project)
-    git add <file> - moves the files into a waiting room called "Staging Area". Multiple files are added before a commit then push. 
-    git push <file> - This is when you upload that photo from your camera roll to your online gallery (GitHub) to share it.
-    git pull <file> - You do this every day on a repository you already have. It checks the remote for new commits and downloads them to your existing local copy. It's like getting today's issue of the magazine in the mail.
-    git commit - This is when you actually press the shutter button. You take the snapshot and give it a description (a commit message). The photo is now saved in your local camera roll (your local repository).
-        -m "<message>" (Message Flag)
-    .gitignore - stores all the files you don't want to track (ex. don't save the .venv because it can be very large and specific to each dev's computer)
-    git remote add origin <your-repository-url.git> - Connects local repo to the new remote one on GitHub
-    git push -u origin main - Send local commit history up to GitHub
-    git clone <paste-github-url-here> - You do this once per machine to create a brand new, local copy of a remote repository. It's like subscribing to a new magazine; you get the entire back-catalog and are set up for future issues.
-    git diff --staged - compare the snapshot of files you created with git add (shows everything you have added)
-    git log - Shows list of commit history starting with most recent
-    git mv <old-file-name> <new-file-name> - Single "rename" action, not a separate delete and add. 
-
-*PIP*
-    pip freeze > requirements.txt - Generates a list of installed packages, and then pours them into a new file called requirements.txt
-    pip install -r requirements.txt - Tells pip to install everything in your requirements file. (Make sure your in venv)
-
-
-
-*VENV*
-    python -m venv .venv - create a virtual environment inside your project folder (Always do this when making new project)
-    (WIN) .venv\Scripts\activate - Activate the venv, once its activated any package you install with pip will go only inside the isolated environment
-    (MAC) source .venv/bin/activate 
-    - resolves any conflict between different versions of packages (pandas 1.5 & pandas 2.0)
-    - Create and "activate" a venv for "DSA Project"
-    - inside it you install only the packages that project needs
-    - the requirements.txt file is then generated from inside this environment, so it only lists the specific packages for that project
-
-
 *BIG O NOTATION (How code slows as data grows)*
     - Formal way to describe how the resources required by an algorithm are affected by the size of its input. 
     - Big O doesn't measure performance in seconds but measures the Rate Of Growth of the number of operations.
