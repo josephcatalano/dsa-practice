@@ -56,6 +56,26 @@ def has_pair_with_sum(arr: List[int], target: int) -> bool:
 
     return False
 
+def is_palindrome_two_pointers(s: str) -> bool:
+    """Checks if a string is a palindrome using the two-pointers pattern
+
+    Args:
+        s (str): The input string to check.
+
+    Returns:
+        bool: True if the string is a palindrome, False otherwise.
+    """
+    left = 0
+    right = len(s) - 1
+
+    while left < right:
+        if s[left] != s[right]:
+            return False
+        left += 1
+        right -= 1
+
+    return True
+
 def main():
     """Defines and runs simple test cases for the implemented functions."""
 
@@ -78,6 +98,15 @@ def main():
     print(
         f"Does the list {sorted_list} have a pair that sums to {target_to_miss}? {has_pair}"
     )
+
+    # Test is_palindrome_two_pointers
+    palindrome_str = "racecar"
+    is_pal = is_palindrome_two_pointers(palindrome_str)
+    print(f"\nIs '{palindrome_str}' a palindrome? {is_pal}")
+
+    non_palindrome_str = "hello"
+    is_pal = is_palindrome_two_pointers(non_palindrome_str)
+    print(f"Is '{non_palindrome_str}' a palindrome? {is_pal}")
 
 if __name__ == "__main__":
     main()
