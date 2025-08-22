@@ -121,4 +121,20 @@
                 - KMP algorithm is smart enough to know that after seeing [ABCAB] then failing, theres no possible way a match could start at index 1, 2, or 3.
                 - It uses a pre-computed table to know it can safely jump its window all the way to index 3 to continue the search.
                 - This is what makes it much faster, often approaching O(n) time.
-  
+
+**AUGUST 22 2025**
+
+*The Two Pointers Pattern*
+    - Involves using two separate pointers (var holding array indices) that move through an array until they meet or satisfy a condition.
+    - Allows you to process the array in a single pass rather than a nested loop.
+    - Time complexity for a nested loop = O(n^2)
+
+    Two Pointers Logic
+        - For a sorted array:
+          - current_sum = array[left] + array[right]
+          - if current sum is less than the target value move the right pointer to the right
+          - if current sum is more that the target value move the left pointer to the left
+          - while left < right
+          - left, right = right, left
+          - left++, right--
+        - 

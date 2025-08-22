@@ -22,9 +22,6 @@ def demonstrate_constant_time(items: List[int]) -> None:
     An O(1) algorithm's execution time is constant; it does not change with
     the size of the input 'n'.
 
-    Analogy: Picking a numbered page from a book. It takes the same amount
-    of time whether the book has 50 or 500 pages.
-
     Args:
         items: A list of items. The function will access the first element.
     """
@@ -46,10 +43,6 @@ def demonstrate_logarithmic_time(n: int) -> None:
     slowly as the input size grows. This typically occurs when the problem
     size is halved at each step.
 
-    Analogy: Finding a word in a physical dictionary. You open to the
-    middle, see if your word is before or after, and then repeat the
-    process on that smaller half.
-
     Args:
         n: The size of the theoretical input.
     """
@@ -69,9 +62,6 @@ def demonstrate_linear_time(n: int) -> None:
     An O(n) algorithm's execution time grows in direct proportion to the
     input size 'n'. If the input doubles, the work doubles.
 
-    Analogy: Reading every page in a book. A 200-page book takes twice
-    as long to read as a 100-page book.
-
     Args:
         n: The size of the input.
     """
@@ -86,10 +76,6 @@ def demonstrate_quadratic_time(n: int) -> None:
     An O(n^2) algorithm's execution time is proportional to the square of
     the input size. This is common in algorithms that compare every element
     of a collection to every other element (e.g., nested loops).
-
-    Analogy: A room full of people where everyone shakes hands with everyone
-    else. If you double the number of people, the number of handshakes
-    roughly quadruples.
 
     Args:
         n: The size of the input.
