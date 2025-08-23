@@ -1,8 +1,9 @@
 """two_sums.py
-LeetCode solution for Two Sum problem
+
+This module provides the Two Sum LeetCode solution.
 
 Author: Joseph Catalano
-Date August 22 2025
+Date August 22, 2025
 """
 
 from typing import List
