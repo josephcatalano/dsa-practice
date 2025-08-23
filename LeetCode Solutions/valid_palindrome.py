@@ -6,7 +6,7 @@ Author: Joseph Catalano
 Date: August 22, 2025
 """
 
-def is_palindrome(s: str) -> str:
+def is_palindrome(s: str) -> bool:
     """Checks if a string is a palindrome after cleaning it.
     
     Args:
@@ -16,16 +16,23 @@ def is_palindrome(s: str) -> str:
         bool: True if the cleaned string is a palindrome, False otherwise
     """
 
-    new_string = []
+    cleaned_chars = []
+    for char in s:
+        if char.isalnum():
+            cleaned_chars.append(char.lower())
 
-    for i in s:
-        if i.isalnum():
-            new_string.append(i.lower())
+    cleaned_s = "".join(cleaned_chars)
 
-    if new_string == new_string[::-1]:
-        return True
+    left = 0
+    right = len(cleaned_s) - 1
 
-    return False
+    while left < right:
+        if cleaned_s[left] != cleaned_s[right]:
+            return False
+        left += 1
+        right -= 1
+
+    return True
 
 
 def main():
