@@ -137,4 +137,12 @@
           - while left < right
           - left, right = right, left
           - left++, right--
-        - 
+
+    Value-to-Index Mapping
+        - By using a dictionary to map values to indicies, you can find the index of any value in O(1) time.
+        - value -> inde map can solve the problem in a single pass.
+        - Create empty dictionary, loop through input (nums), and for each element you ask "Is the number i need to complete the pair already in my dictionary?"
+        - y = target - x
+          - Check if the complement (target - x) is already in the dictionary. (you do this in case for ex.
+          - nums = [3,5,2] and target = 6)
+          - Add the current number x and its index i to the dictionary

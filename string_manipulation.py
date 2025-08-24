@@ -2,8 +2,7 @@
 
 This module provides simple, efficient functions for common string operations
 including reversing a string, checking for palindromes, and counting character
-frequency. It also includes a main execution block to demonstrate the
-functions' usage and performance.
+frequency.
 
 Author: Joseph Catalano
 Date: August 19, 2025
@@ -26,9 +25,6 @@ def reverse_string(s: str) -> str:
 def is_palindrome(s: str) -> bool:
     """Checks if a string is a palindrome.
 
-    A palindrome is a word, phrase, or sequence that reads the same
-    backward as forward, e.g., madam or racecar.
-
     Args:
         s: The string to check.
 
@@ -40,9 +36,6 @@ def is_palindrome(s: str) -> bool:
 
 def char_count(s: str) -> dict:
     """Counts the frequency of each character in a string.
-
-    This function is case-sensitive. For example, 'A' and 'a' would be
-    counted as distinct characters.
 
     Args:
         s: The string in which to count characters.
