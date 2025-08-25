@@ -27,8 +27,8 @@ def analyze_file(filepath: str) -> None:
     except FileNotFoundError:
         print(f"Error: The file '{filepath}' was not found.")
         return
-    except Exception as e:
-        print(f"An unexpected error occurred: {e}")
+    except IOError as e:
+        print(f"Error reading file '{filepath}': {e}")
         return
 
     # --- Analysis ---
