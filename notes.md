@@ -1,5 +1,3 @@
-**Aug 17 2025**
-
 *BIG O NOTATION (How code slows as data grows)*
     - Formal way to describe how the resources required by an algorithm are affected by the size of its input. 
     - Big O doesn't measure performance in seconds but measures the Rate Of Growth of the number of operations.
@@ -35,7 +33,6 @@
     Big Omega tells you the "best-case" scenario, like the shortest it could possibly take.
     Big Theta tells you the "average-case" scenario, giving you a good idea of how it will usually perform. 
 
-**AUGUST 18 2025**
 
 *Arrays & Dynamic Arrays*
     - An array stores a collection of elements in contiguous which means elements are stored one after another in a single, unbroken block of mem.
@@ -122,7 +119,6 @@
                 - It uses a pre-computed table to know it can safely jump its window all the way to index 3 to continue the search.
                 - This is what makes it much faster, often approaching O(n) time.
 
-**AUGUST 22 2025**
 
 *The Two Pointers Pattern*
     - Involves using two separate pointers (var holding array indices) that move through an array until they meet or satisfy a condition.
