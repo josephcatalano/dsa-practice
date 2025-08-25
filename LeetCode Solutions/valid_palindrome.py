@@ -8,7 +8,10 @@ Date: August 22, 2025
 
 def is_palindrome(s: str) -> bool:
     """Checks if a string is a palindrome after cleaning it.
-    
+
+    Time Complexity: O(n) - Requires one pass to clean and one pass to check.
+    Space Complexity: O(n) - A new string is created to store the cleaned characters.
+
     Args:
         s (str): The input string, which can include punctuation and mixed case.
 

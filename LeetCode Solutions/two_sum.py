@@ -8,8 +8,12 @@ Date August 22, 2025
 
 from typing import List
 
+
 def two_sum(nums: List[int], target: int) -> List[int]:
     """Finds the indices of two numbers in a list that add up to a target. (Hash Map)
+
+    Time Complexity: O(n) - Single pass through the input list.
+    Space Complexity: O(n) - In the worst case, the hash map stores all n elements.
 
     Args:
         nums (List[int]): A list of integers to search through.
@@ -19,16 +23,19 @@ def two_sum(nums: List[int], target: int) -> List[int]:
         List[int]: A list containing the two indices of the numbers that add up to the target.
     """
 
-    value_map = {}
+    num_to_index_map = {}
 
     for index, num in enumerate(nums):
         complement = target - num
 
-        if complement in value_map:
-            return [index, value_map[complement]]
+        if complement in num_to_index_map:
+            return [index, num_to_index_map[complement]]
 
         else:
-            value_map[num] = index
+            num_to_index_map[num] = index
+
+    return []
+
 
 def main():
     """Test Cases for Validation"""
@@ -47,6 +54,7 @@ def main():
     target3 = 0
     print(f"\nInput: nums = {nums3}, target = {target3}")
     print(f"Output: {two_sum(nums3, target3)}")
+
 
 if __name__ == "__main__":
     main()

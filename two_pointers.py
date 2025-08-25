@@ -13,6 +13,9 @@ from typing import List, Any
 def reverse_in_place(arr: List[Any]) -> List[Any]:
     """Reverses a list in place using the two-pointers pattern.
 
+    Time Complexity: O(n) - Single pass through half the list.
+    Space Complexity: O(1) - No new data structures are created.
+
     Args:
         arr (List[Any]): The list of items to be reversed.
 
@@ -31,6 +34,9 @@ def reverse_in_place(arr: List[Any]) -> List[Any]:
 
 def has_pair_with_sum(arr: List[int], target: int) -> bool:
     """Checks for a pair of elements that sum to a target in a sorted list
+
+    Time Complexity: O(n) - Single pass through the list.
+    Space Complexity: O(1) - Only two integer pointers are stored.
 
     Precondition:
         The input list 'arr' must be sorted in ascending order.
@@ -57,6 +63,9 @@ def has_pair_with_sum(arr: List[int], target: int) -> bool:
 
 def is_palindrome_two_pointers(s: str) -> bool:
     """Checks if a string is a palindrome using the two-pointers pattern
+
+    Time Complexity: O(n) - Single pass through half the string.
+    Space Complexity: O(1) - Only two integer pointers are stored.
 
     Args:
         s (str): The input string to check.
