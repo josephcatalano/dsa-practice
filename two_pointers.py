@@ -7,10 +7,10 @@ Author: Joseph Catalano
 Date: August 22, 2025
 """
 
-from typing import List
+from typing import List, Any
 
 
-def reverse_in_place(arr: List[any]) -> List:
+def reverse_in_place(arr: List[Any]) -> List[Any]:
     """Reverses a list in place using the two-pointers pattern.
 
     Args:
@@ -19,7 +19,6 @@ def reverse_in_place(arr: List[any]) -> List:
     Returns:
         List[Any]: The same list object that was passed in, reversed.
     """
-
     left = 0
     right = len(arr) - 1
 
@@ -27,7 +26,6 @@ def reverse_in_place(arr: List[any]) -> List:
         arr[left], arr[right] = arr[right], arr[left]
         left += 1
         right -= 1
-
     return arr
 
 
@@ -44,7 +42,6 @@ def has_pair_with_sum(arr: List[int], target: int) -> bool:
     Returns:
         bool: True if a pair is found that sums to the target, False otherwise.
     """
-
     left = 0
     right = len(arr) - 1
 
@@ -55,7 +52,6 @@ def has_pair_with_sum(arr: List[int], target: int) -> bool:
             right -= 1
         else:
             left += 1
-
     return False
 
 
@@ -82,39 +78,30 @@ def is_palindrome_two_pointers(s: str) -> bool:
 
 def main():
     """Defines and runs simple test cases for the implemented functions."""
+    print("--- Testing Two Pointers Functions ---")
 
-    print("\n--- Testing Reverse in Place Function ---")
     # Test reverse_in_place
-    list_to_reverse = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-    print(f"Original list: {list_to_reverse}")
-    reversed_list = reverse_in_place(list_to_reverse)
-    print(f"Reversed list: {reversed_list}")
+    list_to_reverse = [1, 2, 3, 4, 5]
+    print(f"\nOriginal list: {list_to_reverse}")
+    reverse_in_place(list_to_reverse)
+    print(f"Reversed list: {list_to_reverse}")
 
-    print("\n--- Testing Pair With Sum Function ---")
     # Test has_pair_with_sum
     sorted_list = [1, 2, 4, 7, 11, 15]
     target_to_find = 9
-    has_pair = has_pair_with_sum(sorted_list, target_to_find)
     print(
-        f"Does the list {sorted_list} have a pair that sums to {target_to_find}? {has_pair}"
-    )
-
-    target_to_miss = 20
-    has_pair = has_pair_with_sum(sorted_list, target_to_miss)
-    print(
-        f"Does the list {sorted_list} have a pair that sums to {target_to_miss}? {has_pair}"
+        f"\nDoes {sorted_list} have a pair that sums to {target_to_find}? {has_pair_with_sum(sorted_list, target_to_find)}"
     )
 
     # Test is_palindrome_two_pointers
-    print("\n--- Testing Is Palindrome Function ---")
-
     palindrome_str = "racecar"
-    is_pal = is_palindrome_two_pointers(palindrome_str)
-    print(f"Is '{palindrome_str}' a palindrome? {is_pal}")
-
+    print(
+        f"\nIs '{palindrome_str}' a palindrome? {is_palindrome_two_pointers(palindrome_str)}"
+    )
     non_palindrome_str = "hello"
-    is_pal = is_palindrome_two_pointers(non_palindrome_str)
-    print(f"Is '{non_palindrome_str}' a palindrome? {is_pal}")
+    print(
+        f"Is '{non_palindrome_str}' a palindrome? {is_palindrome_two_pointers(non_palindrome_str)}"
+    )
 
 
 if __name__ == "__main__":

@@ -10,22 +10,34 @@ Author: Joseph Catalano
 Date: August 18, 2025
 """
 
+from typing import Any, List
+
+
 class DynamicArray:
     """A simplified implementation of a dynamic array."""
+
+    _GROWTH_FACTOR = 2
+    _INITIAL_CAPACITY = 1
 
     def __init__(self):
         """Initializes a new, empty dynamic array."""
 
-        self.size = 0          # Tracks the number of elements currently stored
-        self.capacity = 1      # Tracks the number of available slots
+        self.size = 0
+        self.capacity = self._INITIAL_CAPACITY
         self._elements = self._create_array(self.capacity)
 
-    def __len__(self):
+    def __len__(self) -> int:
         """Returns the number of elements in the array for use with len()."""
 
         return self.size
 
-    def append(self, new_element):
+    def __repr__(self) -> str:
+        """Returns a string representation of the array for debugging."""
+        elements_list = self._elements[0 : self.size]
+        elements_str = str(elements_list)
+        return f"DynamicArray({elements_str})"
+
+    def append(self, new_element: Any) -> None:
         """Adds an element to the end of the array.
 
         If the array is full, it automatically triggers a resize operation
@@ -41,7 +53,7 @@ class DynamicArray:
         self._elements[self.size] = new_element
         self.size += 1
 
-    def get(self, index):
+    def get(self, index: int) -> Any:
         """Retrieves the element at a specified index.
 
         Time complexity: O(1).
@@ -60,7 +72,7 @@ class DynamicArray:
             raise IndexError("Index out of bounds")
         return self._elements[index]
 
-    def pop(self):
+    def pop(self) -> Any:
         """Removes and returns the last element of the array.
 
         Time complexity: O(1).
@@ -76,23 +88,24 @@ class DynamicArray:
             raise IndexError("Pop from empty list")
 
         value = self._elements[self.size - 1]
-        self._elements[self.size - 1] = None  # Help garbage collector
+        self._elements[self.size - 1] = None
         self.size -= 1
         return value
 
-    def _resize(self):
+    def _resize(self) -> None:
         """(Private) Doubles the capacity and rebuilds the internal array."""
 
-        self.capacity *= 2
+        self.capacity *= self._GROWTH_FACTOR
         new_array = self._create_array(self.capacity)
         for i in range(self.size):
             new_array[i] = self._elements[i]
         self._elements = new_array
 
-    def _create_array(self, new_capacity):
+    def _create_array(self, new_capacity: int) -> List[Any]:
         """(Private) Creates a new fixed-size array with a given capacity."""
 
         return [None] * new_capacity
+
 
 def run_tests():
     """Runs a suite of tests to validate DynamicArray functionality."""
@@ -126,6 +139,7 @@ def run_tests():
         print("TEST PASSED: Correctly caught IndexError.")
 
     print("\n--- All Tests Passed ---")
+
 
 if __name__ == "__main__":
     run_tests()

@@ -37,7 +37,7 @@ def is_palindrome(s: str) -> bool:
     return s == s[::-1]
 
 
-def char_count(s: str) -> dict:
+def char_count(s: str) -> dict[str, int]:
     """Counts the frequency of each character in a string.
 
     Args:
@@ -60,21 +60,19 @@ def char_count(s: str) -> dict:
 
 def main():
     """Main function to demonstrate and test the string utility functions."""
-    # --- Function Demonstrations ---
+
     print("--- Function Demonstrations ---")
     print(f"Reversing 'hello': {reverse_string('hello')}")
     print(f"Is 'racecar' a palindrome? {is_palindrome('racecar')}")
     print(f"Character count for 'hello world': {char_count('hello world')}")
 
-    # --- Performance Test ---
     print("\n--- Performance Test ---")
-    long_string = "a" * 10_000_000 + "b"  # Using underscores for readability
+    long_string = "a" * 10_000_000 + "b"
     print(f"Checking a string with {len(long_string):,} characters.")
 
-    # time.perf_counter() is more precise for measuring short durations
-    start_time = time.time()
+    start_time = time.perf_counter()
     is_palindrome(long_string)
-    end_time = time.time()
+    end_time = time.perf_counter()
 
     duration = end_time - start_time
     print(f"Palindrome check took: {duration:.6f} seconds")
