@@ -4,9 +4,9 @@ This repository contains my implementations of data structures and algorithms in
 
 ## Concepts Covered
 
-* ** Big O Notation:** A file ('big_o_examples.py') demonstrating and explaining Constant, Logarithmic, Linear, and Quadratic time complexities.
+* ** Big O Notation:** A file (`big_o_examples.py`) demonstrating and explaining Constant, Logarithmic, Linear, and Quadratic time complexities.
 
-* **Dynamic Arrays:** A dynamic array built from scratch ('dynamic_array.py'), containing manual memory management, amortized O(1) appends, and a full test scenarios.
+* **Dynamic Arrays:** A dynamic array built from scratch (`dynamic_array.py`), containing manual memory management, amortized O(1) appends, and a full test scenarios.
 
 * **Algorithmic Patterns & LeetCode Solutions:**
     * A folder with optimal solutions for classic LeetCode problems like "Two Sum" (using a hash map) and "Valid Palindrome" (using two pointers).
