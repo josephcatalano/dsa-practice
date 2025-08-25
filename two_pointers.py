@@ -1,6 +1,6 @@
 """two_pointers.py
 
-This module shows implementations of common problems solved 
+This module shows implementations of common problems solved
 by using the Two Pointers algorithmic pattern.
 
 Author: Joseph Catalano
@@ -9,9 +9,10 @@ Date: August 22, 2025
 
 from typing import List
 
+
 def reverse_in_place(arr: List[any]) -> List:
     """Reverses a list in place using the two-pointers pattern.
-    
+
     Args:
         arr (List[Any]): The list of items to be reversed.
 
@@ -29,9 +30,10 @@ def reverse_in_place(arr: List[any]) -> List:
 
     return arr
 
+
 def has_pair_with_sum(arr: List[int], target: int) -> bool:
     """Checks for a pair of elements that sum to a target in a sorted list
-    
+
     Precondition:
         The input list 'arr' must be sorted in ascending order.
 
@@ -56,6 +58,7 @@ def has_pair_with_sum(arr: List[int], target: int) -> bool:
 
     return False
 
+
 def is_palindrome_two_pointers(s: str) -> bool:
     """Checks if a string is a palindrome using the two-pointers pattern
 
@@ -75,6 +78,7 @@ def is_palindrome_two_pointers(s: str) -> bool:
         right -= 1
 
     return True
+
 
 def main():
     """Defines and runs simple test cases for the implemented functions."""
@@ -111,7 +115,6 @@ def main():
     non_palindrome_str = "hello"
     is_pal = is_palindrome_two_pointers(non_palindrome_str)
     print(f"Is '{non_palindrome_str}' a palindrome? {is_pal}")
-
 
 
 if __name__ == "__main__":

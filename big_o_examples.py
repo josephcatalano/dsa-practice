@@ -12,9 +12,9 @@ Date: August 19, 2025
 
 from typing import List
 
-# Constants
 N_SMALL = 16
 N_LARGE = 1024
+
 
 def demonstrate_constant_time(items: List[int]) -> None:
     """Demonstrates O(1) - Constant Time.
@@ -25,27 +25,30 @@ def demonstrate_constant_time(items: List[int]) -> None:
     Args:
         items: A list of items. The function will access the first element.
     """
+    print("## O(1)   - Constant ##")
 
     operations = 0
     if items:
-        # The core O(1) action is accessing an element by its index.
         _ = items[0]
         operations = 1
 
     print(f"  Input size (n): {len(items):,}")
     print(f"  Operations: {operations} (Constant regardless of n)")
+    print("-" * 30)
+
 
 def demonstrate_logarithmic_time(n: int) -> None:
     """Demonstrates O(log n) - Logarithmic Time.
 
     An O(log n) algorithm's execution time grows logarithmically with 'n'.
     This is highly efficient because the operational cost increases very
-    slowly as the input size grows. This typically occurs when the problem
+    slowly as the input size grows. This normally occurs when the problem
     size is halved at each step.
 
     Args:
         n: The size of the theoretical input.
     """
+    print("## O(log n)   - Logarithmic ##")
 
     operations = 0
     i = 1
@@ -55,6 +58,8 @@ def demonstrate_logarithmic_time(n: int) -> None:
 
     print(f"  Input size (n): {n:,}")
     print(f"  Operations: {operations} (Grows very slowly as n increases)")
+    print("-" * 30)
+
 
 def demonstrate_linear_time(n: int) -> None:
     """Demonstrates O(n) - Linear Time.
@@ -65,10 +70,13 @@ def demonstrate_linear_time(n: int) -> None:
     Args:
         n: The size of the input.
     """
+    print("## O(n)   - Linear ##")
 
-    operations = sum(1 for _ in range(n))
+    operations = n
     print(f"  Input size (n): {n:,}")
     print(f"  Operations: {operations:,} (Grows 1-to-1 with n)")
+    print("-" * 30)
+
 
 def demonstrate_quadratic_time(n: int) -> None:
     """Demonstrates O(n^2) - Quadratic Time.
@@ -80,6 +88,7 @@ def demonstrate_quadratic_time(n: int) -> None:
     Args:
         n: The size of the input.
     """
+    print("## O(n^2)   - Quadratic ##")
 
     operations = 0
     for _ in range(n):
@@ -87,14 +96,15 @@ def demonstrate_quadratic_time(n: int) -> None:
             operations += 1
 
     print(f"  Input size (n): {n:,}")
-    print(f"  Operations: {operations:,} (Grows exponentially with n)")
+    print(f"  Operations: {operations:,} (Grows quadratically with n)")
+    print("-" * 30)
+
 
 def main():
     """Runs all the Big O demonstration functions with sample inputs."""
 
     print("--- Big O Notation Examples ---\n")
 
-    # Create lists for the O(1) demonstration
     small_list = list(range(N_SMALL))
     large_list = list(range(N_LARGE))
 
@@ -117,10 +127,8 @@ def main():
         ),
     }
 
-    for name, func in demos.items():
-        print(f"## {name} ##")
+    for func in demos.values():
         func()
-        print("-" * 30)
 
 
 if __name__ == "__main__":

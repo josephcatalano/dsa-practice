@@ -10,9 +10,10 @@ Date: August 19, 2025
 
 import time
 
+
 def reverse_string(s: str) -> str:
     """Reverses a given string.
-    
+
     Args:
         s: The string to be reversed.
 
@@ -20,7 +21,8 @@ def reverse_string(s: str) -> str:
         The string in reverse order.
     """
 
-    return s[::-1] #start:stop:step
+    return s[::-1]  # start:stop:step
+
 
 def is_palindrome(s: str) -> bool:
     """Checks if a string is a palindrome.
@@ -33,6 +35,7 @@ def is_palindrome(s: str) -> bool:
     """
 
     return s == s[::-1]
+
 
 def char_count(s: str) -> dict:
     """Counts the frequency of each character in a string.
